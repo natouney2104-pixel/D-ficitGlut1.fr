@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recettes Thérapeutiques GLUT-1 – Laura Ladam</title>
+  <meta
+    name="description"
+    content="Recettes thérapeutiques au ratio 4:1 pour le syndrome de déficit en GLUT-1 (Glut1DS). Par Laura Ladam."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .recipe-item {
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .hidden-recipe {
+      display: none !important;
+    }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  
+    /* PAGE TRANSITIONS */
+    body { opacity: 0; }
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideFromRight {
+      from { opacity: 0; transform: translateX(80px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideFromLeft {
+      from { opacity: 0; transform: translateX(-80px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    body.exit-to-left {
+      transition: transform 0.28s ease-in, opacity 0.28s ease-in !important;
+      transform: translateX(-80px) !important;
+      opacity: 0 !important;
+      pointer-events: none;
+      animation: none !important;
+    }
+    body.exit-to-right {
+      transition: transform 0.28s ease-in, opacity 0.28s ease-in !important;
+      transform: translateX(80px) !important;
+      opacity: 0 !important;
+      pointer-events: none;
+      animation: none !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased bg-gray-50">
+  <main>
+    <div class="min-h-screen bg-white">
+      <section class="bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white border-b border-blue-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+            <div class="text-left w-full md:w-5/12 flex flex-col justify-center">
+              <h1 class="text-6xl sm:text-7xl lg:text-8xl font-light tracking-tighter text-white leading-none">
+                Laura<br /><span class="font-bold">Ladam</span>
+              </h1>
+            </div>
+            <div class="w-full md:w-7/12 text-left">
+              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+                Recettes Thérapeutiques <span class="text-blue-200">GLUT-1</span>
+              </h2>
+              <p class="text-lg text-blue-100 max-w-xl mb-6 leading-relaxed">
+                25 recettes certifiées au ratio 4:1, conçues pour les enfants et adultes atteints du Syndrome de Déficit en GLUT-1 (Glut1DS).
+              </p>
+              <a
+                href="#recettes"
+                class="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              >
+                Voir les recettes
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-white" id="comprendre">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Comprendre le Syndrome Glut1DS</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Le déficit en transporteur de glucose de type 1 est une maladie neurologique rare traitable par le régime thérapeutique.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div class="space-y-6">
+              <div class="bg-blue-50 border-l-4 border-blue-600 rounded-r-2xl p-6">
+                <div class="flex items-start gap-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600 flex-shrink-0 mt-1">
+                    <path d="M12 18V5"></path>
+                    <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"></path>
+                    <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"></path>
+                    <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"></path>
+                    <path d="M18 18a4 4 0 0 0 2-7.464"></path>
+                    <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"></path>
+                    <path d="M6 18a4 4 0 0 1-2-7.464"></path>
+                    <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Qu'est-ce que le Glut1DS ?</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                      Le syndrome de déficit en GLUT-1 est causé par une mutation du gène <em>SLC2A1</em>. Ce transporteur est essentiel pour faire passer le glucose du sang vers le cerveau. Sans lui, les neurones manquent d'énergie, provoquant des crises épileptiques et des retards cognitifs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r-2xl p-6">
+                <div class="flex items-start gap-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-amber-600 flex-shrink-0 mt-1">
+                    <path d="M16 7h6v6"></path>
+                    <path d="m22 7-8.5 8.5-5-5L2 17"></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Le rôle du régime 4:1</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                      Lorsque l'apport en glucides est très faible, le foie produit des <strong>corps cétoniques</strong> à partir des lipides. Ces corps cétoniques traversent la barrière hémato-encéphalique par une voie différente, contournant ainsi le défaut de transport.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-green-50 border-l-4 border-green-600 rounded-r-2xl p-6">
+                <div class="flex items-start gap-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600 flex-shrink-0 mt-1">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-bold text-gray-900 text-lg mb-2">Principes fondamentaux</h3>
+                    <ul class="text-gray-700 text-sm leading-relaxed space-y-1.5 list-none pl-0">
+                      <li>• Pesée précise au gramme près de chaque ingrédient</li>
+                      <li>• Respect strict des portions prescrites</li>
+                      <li>• Aucune substitution sans accord médical</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <h3 class="font-bold text-gray-900 text-xl">Données clés sur le Glut1DS</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="border rounded-2xl p-5 bg-blue-50 border-blue-200 text-blue-700">
+                  <div class="text-2xl font-extrabold mb-1">1 / 24 000</div>
+                  <div class="font-semibold text-sm">Prévalence estimée</div>
+                  <div class="text-xs mt-1 opacity-75">Naissances affectées dans le monde</div>
+                </div>
+                <div class="border rounded-2xl p-5 bg-green-50 border-green-200 text-green-700">
+                  <div class="text-2xl font-extrabold mb-1">80 %</div>
+                  <div class="font-semibold text-sm">Taux d'amélioration</div>
+                  <div class="text-xs mt-1 opacity-75">Réduction des crises sous régime</div>
+                </div>
+                <div class="border rounded-2xl p-5 bg-amber-50 border-amber-200 text-amber-700">
+                  <div class="text-2xl font-extrabold mb-1">&lt; 2 ans</div>
+                  <div class="font-semibold text-sm">Âge de diagnostic idéal</div>
+                  <div class="text-xs mt-1 opacity-75">Pour limiter les séquelles neurologiques</div>
+                </div>
+                <div class="border rounded-2xl p-5 bg-purple-50 border-purple-200 text-purple-700">
+                  <div class="text-2xl font-extrabold mb-1">4 : 1</div>
+                  <div class="font-semibold text-sm">Ratio thérapeutique</div>
+                  <div class="text-xs mt-1 opacity-75">Lipides / (Protéines + Glucides nets)</div>
+                </div>
+                <div class="border rounded-2xl p-5 bg-red-50 border-red-200 text-red-700">
+                  <div class="text-2xl font-extrabold mb-1">&gt; 200</div>
+                  <div class="font-semibold text-sm">Mutations recensées</div>
+                  <div class="text-xs mt-1 opacity-75">Du gène SLC2A1 identifiées à ce jour</div>
+                </div>
+                <div class="border rounded-2xl p-5 bg-teal-50 border-teal-200 text-teal-700">
+                  <div class="text-2xl font-extrabold mb-1">3 – 4 ans</div>
+                  <div class="font-semibold text-sm">Durée minimale</div>
+                  <div class="text-xs mt-1 opacity-75">Du traitement diététique recommandé</div>
+                </div>
+              </div>
+
+              <div class="bg-slate-900 text-white rounded-2xl p-6 mt-6">
+                <div class="flex items-start gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400 flex-shrink-0 mt-0.5">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                  </svg>
+                  <div>
+                    <h4 class="font-bold mb-2">Ressources et soutien</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                      Le réseau G1D France accompagne les familles avec des consultations en centres spécialisés (APHP, CHU Lyon, CHU Toulouse). L'association internationale Glut1 Deficiency Foundation coordonne la recherche mondiale sur cette maladie rare.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="recettes" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-900">Galerie de Recettes</h2>
+            <p class="mt-3 text-lg text-gray-600">25 recettes thérapeutiques certifiées, toutes au ratio 4:1</p>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-3 mb-10" id="filter-container">
+            <button type="button" data-filter="all" class="filter-btn active bg-blue-700 border-blue-700 text-white px-5 py-2 rounded-full text-sm font-semibold border-2 transition-all duration-200 shadow-md">
+              Toutes les recettes
+            </button>
+            <button type="button" data-filter="petit-dejeuner" class="filter-btn border-amber-500 text-amber-500 bg-white hover:bg-amber-50 px-5 py-2 rounded-full text-sm font-semibold border-2 transition-all duration-200">
+              Petit-déjeuner
+            </button>
+            <button type="button" data-filter="repas" class="filter-btn border-emerald-500 text-emerald-500 bg-white hover:bg-emerald-50 px-5 py-2 rounded-full text-sm font-semibold border-2 transition-all duration-200">
+              Repas
+            </button>
+            <button type="button" data-filter="collations" class="filter-btn border-indigo-500 text-indigo-500 bg-white hover:bg-indigo-50 px-5 py-2 rounded-full text-sm font-semibold border-2 transition-all duration-200">
+              Collations
+            </button>
+            <button type="button" data-filter="boissons" class="filter-btn border-blue-500 text-blue-500 bg-white hover:bg-blue-50 px-5 py-2 rounded-full text-sm font-semibold border-2 transition-all duration-200">
+              Boissons
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="recipes-grid">
+            <a href="./%C5%92ufs%20brouill%C3%A9s%20au%20beurre%20et%20cr%C3%A8me.html" data-category="petit-dejeuner" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?auto=format&fit=crop&w=400&q=80" alt="Œufs brouillés" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-amber-500">Petit-déjeuner</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Œufs brouillés au beurre et crème</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un classique réconfortant, riche en lipides de qualité.</p>
+              </div>
+            </a>
+
+            <a href="./Cr%C3%AApe%20%C3%A0%20la%20cr%C3%A8me%20et%20noix%20de%20coco.html" data-category="petit-dejeuner" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=400&q=80" alt="Crêpe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-amber-500">Petit-déjeuner</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Crêpe à la crème et noix de coco</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une crêpe légère aux graisses de coco, garnie de crème fouettée.</p>
+              </div>
+            </a>
+
+            <a href="./Porridge%20de%20graines%20de%20chia%20au%20lait%20de%20coco.html" data-category="petit-dejeuner" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?auto=format&fit=crop&w=400&q=80" alt="Porridge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-amber-500">Petit-déjeuner</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Porridge de graines de chia au lait de coco</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un porridge onctueux préparé la veille, riche en oméga-3.</p>
+              </div>
+            </a>
+
+            <a href="./Yaourt%20maison%20%C3%A0%20la%20vanille.html" data-category="petit-dejeuner" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=80" alt="Yaourt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-amber-500">Petit-déjeuner</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Yaourt maison à la vanille</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un yaourt épais et riche fabriqué à partir de crème entière.</p>
+              </div>
+            </a>
+
+            <a href="./Muffin%20aux%20myrtilles.html" data-category="petit-dejeuner" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=400&q=80" alt="Muffin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-amber-500">Petit-déjeuner</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Muffin aux myrtilles</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un muffin moelleux, préparé à l'avance et transportable.</p>
+              </div>
+            </a>
+
+            <a href="./Pain%20au%20beurre%20et%20graines%20de%20lin.html" data-category="petit-dejeuner" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" alt="Pain" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-amber-500">Petit-déjeuner</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Pain au beurre et graines de lin</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une tranche de pain riche en fibres et en lipides.</p>
+              </div>
+            </a>
+
+            <a href="./Smoothie%20bowl%20avocat-coco.html" data-category="petit-dejeuner" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1600718374662-0483d2b9da44?auto=format&fit=crop&w=400&q=80" alt="Smoothie bowl" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-amber-500">Petit-déjeuner</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Smoothie bowl avocat-coco</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un bol épais et rassasiant à base d'avocat et de lait de coco.</p>
+              </div>
+            </a>
+
+            <a href="./Saumon%20en%20cro%C3%BBte%20de%20s%C3%A9same%2C%20pur%C3%A9e%20de%20chou-fleur.html" data-category="repas" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=400&q=80" alt="Saumon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-emerald-500">Repas</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Saumon en croûte de sésame, purée de chou-fleur</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un repas complet : pavé de saumon croquant sur purée crémeuse.</p>
+              </div>
+            </a>
+
+            <a href="./Poulet%20r%C3%B4ti%20%C3%A0%20l%27huile%20de%20coco%2C%20courgettes%20fondantes.html" data-category="repas" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=400&q=80" alt="Poulet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-emerald-500">Repas</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Poulet rôti à l'huile de coco, courgettes fondantes</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un filet de poulet doré dans l'huile de coco, accompagné de courgettes confites.</p>
+              </div>
+            </a>
+
+            <a href="./Omelette%20au%20fromage%20et%20avocat.html" data-category="repas" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1494597564530-871f2b93ac55?auto=format&fit=crop&w=400&q=80" alt="Omelette" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-emerald-500">Repas</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Omelette au fromage et avocat</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une omelette moelleuse garnie de fromage gras et d'avocat crémeux.</p>
+              </div>
+            </a>
+
+            <a href="./Soupe%20de%20l%C3%A9gumes%20au%20lait%20de%20coco.html" data-category="repas" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&q=80" alt="Soupe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-emerald-500">Repas</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Soupe de légumes au lait de coco</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une soupe veloutée et réconfortante, enrichie au lait de coco et à l'huile MCT.</p>
+              </div>
+            </a>
+
+            <a href="./Salade%20de%20thon%20%C3%A0%20la%20mayonnaise.html" data-category="repas" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Salade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-emerald-500">Repas</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Salade de thon à la mayonnaise</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une salade fraîche et nourrissante avec une mayonnaise maison riche en huile d'olive.</p>
+              </div>
+            </a>
+
+            <a href="./Boulettes%20de%20viande%20%C3%A0%20la%20sauce%20cr%C3%A8me.html" data-category="repas" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=400&q=80" alt="Boulettes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-emerald-500">Repas</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Boulettes de viande à la sauce crème</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Des boulettes tendres nappées d'une sauce crème riche.</p>
+              </div>
+            </a>
+
+            <a href="./Gratin%20de%20courgettes%20%C3%A0%20la%20cr%C3%A8me%20et%20parmesan.html" data-category="repas" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1627042633145-b780d842ba45?auto=format&fit=crop&w=400&q=80" alt="Gratin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-emerald-500">Repas</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Gratin de courgettes à la crème et parmesan</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un gratin doré et fondant, riche en lipides grâce à la crème et au fromage gras.</p>
+              </div>
+            </a>
+
+            <a href="./Beurre%20d%27amande%20sur%20crackers.html" data-category="collations" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=400&q=80" alt="Crackers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-indigo-500">Collations</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Crackers de graines de lin et sésame</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Des crackers croquants, portables et parfaitement dosés.</p>
+              </div>
+            </a>
+
+            <a href="./Fromage%20gras%20et%20noix%20de%20macadamia.html" data-category="collations" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=400&q=80" alt="Fromage et noix" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-indigo-500">Collations</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Fromage gras et noix de macadamia</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une collation simple : fromage affiné et noix de macadamia.</p>
+              </div>
+            </a>
+
+            <a href="./Mousse%20au%20chocolat%20noir.html" data-category="collations" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?auto=format&fit=crop&w=400&q=80" alt="Mousse chocolat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-indigo-500">Collations</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Mousse au chocolat noir</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une mousse légère et indulgente à base de crème fouettée et de chocolat noir extra-fort (99%).</p>
+              </div>
+            </a>
+
+            <a href="./Olives%20marin%C3%A9es%20%C3%A0%20l%27huile%20d%27olive%20et%20herbes.html" data-category="collations" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1533423996375-f914ab160932?auto=format&fit=crop&w=400&q=80" alt="Olives" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-indigo-500">Collations</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Olives marinées à l'huile d'olive et herbes</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une collation méditerranéenne simple, riche en graisses bénéfiques.</p>
+              </div>
+            </a>
+
+            <a href="./Gel%C3%A9e%20de%20fruits%20rouges.html" data-category="collations" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80" alt="Gelée" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-indigo-500">Collations</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Gelée de fruits rouges</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une gelée légère et colorée, faible en glucides.</p>
+              </div>
+            </a>
+
+            <a href="./Beurre%20d%27amande%20sur%20crackers.html" data-category="collations" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=400&q=80" alt="Beurre amande" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-indigo-500">Collations</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Beurre d'amande sur crackers</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une collation crémeuse alliant le beurre d'amande fait maison à des crackers.</p>
+              </div>
+            </a>
+
+            <a href="./Caf%C3%A9%20bulletproof.html" data-category="boissons" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=400&q=80" alt="Café" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-blue-500">Boissons</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Café bulletproof</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un café crémeux émulsionné avec beurre et huile MCT.</p>
+              </div>
+            </a>
+
+            <a href="./Lait%20d%27or%20au%20curcuma.html" data-category="boissons" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?auto=format&fit=crop&w=400&q=80" alt="Lait d'or" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-blue-500">Boissons</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Lait d'or au curcuma</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un lait de coco chaud aux propriétés anti-inflammatoires.</p>
+              </div>
+            </a>
+
+            <a href="./Smoothie%20avocat%2C%20coco%20et%20%C3%A9pinards.html" data-category="boissons" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&w=400&q=80" alt="Smoothie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-blue-500">Boissons</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Smoothie avocat, coco et épinards</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un smoothie vert dense, riche en vitamines et en lipides.</p>
+              </div>
+            </a>
+
+            <a href="./Infusion%20cr%C3%A9meuse%20%C3%A0%20la%20vanille.html" data-category="boissons" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=400&q=80" alt="Infusion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-blue-500">Boissons</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Infusion crémeuse à la vanille</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Une boisson chaude réconfortante et légère, parfaite en soirée.</p>
+              </div>
+            </a>
+
+            <a href="./Chocolat%20Chaud.html" data-category="boissons" class="recipe-item group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 hover:-translate-y-1">
+              <div class="relative h-44 bg-gray-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=400&q=80" alt="Chocolat chaud" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full shadow bg-blue-500">Boissons</span>
+              </div>
+              <div class="flex flex-col flex-1 p-4">
+                <h3 class="font-bold text-gray-900 text-base leading-snug mb-1 group-hover:text-blue-700">Chocolat chaud</h3>
+                <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">Un chocolat chaud intense et crémeux, sans sucre.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-yellow-900/40 border border-yellow-700/50 rounded-2xl p-6 mb-8">
+            <h3 class="font-bold text-yellow-300 text-base mb-3 flex items-center gap-2">⚠️ Avertissement médical important</h3>
+            <p class="text-yellow-200 text-sm leading-relaxed">
+              Les recettes présentées sur ce site sont exclusivement destinées aux personnes atteintes du Syndrome de Déficit en GLUT-1 (Glut1DS) et suivies par une équipe médicale.
+              <strong>Ce régime ne doit jamais être initié sans supervision médicale</strong>.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+              <p class="font-bold text-white text-lg">Recettes Thérapeutiques Glut1DS</p>
+              <p class="text-sm mt-1">Par <span class="text-blue-400 font-medium">Laura Ladam</span></p>
+            </div>
+            <p class="text-xs text-gray-500">© 2026 – Usage thérapeutique uniquement.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const recipeItems = document.querySelectorAll('.recipe-item');
+
+      function setActiveButton(activeButton) {
+        filterButtons.forEach((button) => {
+          button.classList.remove('bg-blue-700', 'text-white', 'shadow-md');
+          button.classList.add('bg-white');
+          button.setAttribute('aria-pressed', 'false');
+        });
+
+        activeButton.classList.remove('bg-white');
+        activeButton.classList.add('bg-blue-700', 'text-white', 'shadow-md');
+        activeButton.setAttribute('aria-pressed', 'true');
+      }
+
+      function filterRecipes(filterValue) {
+        recipeItems.forEach((item) => {
+          const itemCategory = item.dataset.category;
+          const shouldShow = filterValue === 'all' || itemCategory === filterValue;
+
+          if (shouldShow) {
+            item.classList.remove('hidden-recipe');
+          } else {
+            item.classList.add('hidden-recipe');
+          }
+        });
+      }
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const filterValue = button.dataset.filter;
+          setActiveButton(button);
+          filterRecipes(filterValue);
+        });
+      });
+
+      // Enter animation based on navigation direction
+      var _navDir = sessionStorage.getItem('navDir');
+      sessionStorage.removeItem('navDir');
+      document.body.style.animation = (_navDir === 'back' ? 'slideFromLeft' : 'pageEnter') + ' 0.4s cubic-bezier(0.22, 1, 0.36, 1) both';
+
+      // Recipe card clicks → swipe left toward recipe
+      document.querySelectorAll('.recipe-item').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          sessionStorage.setItem('navDir', 'forward');
+          document.body.classList.add('exit-to-left');
+          setTimeout(function () { window.location.href = link.getAttribute('href'); }, 310);
+        });
+      });
+
+      // "Voir les recettes" → smooth scroll down through page
+      var voirBtn = document.querySelector('a[href="#recettes"]');
+      if (voirBtn) {
+        voirBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector('#recettes').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
